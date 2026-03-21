@@ -25,6 +25,12 @@ abstract class Server {
     }
     protected function setHost(string $host, string $type = 'ANY'):bool {
         try {
+            $host = trim($host);
+            if($host === '')throw new Exception('Es wurde kein Host übergeben!', 0x80040009);
+            if(in_array(strtolower($host), ['localhost', '127.0.0.1', '::1'], true)) {
+                $this->host = $host;
+                return true;
+            }
             // prüfe ob host als IPv4 vorliegt und ersetze sie durch den host
             // filter_var: bietet verschiede filter um werte auf etwas zu überprüfem (ip, mail, float, int, ...)
             if (filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4|FILTER_FLAG_IPV6)) {

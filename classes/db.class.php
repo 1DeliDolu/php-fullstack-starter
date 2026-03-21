@@ -45,9 +45,6 @@ final class DB extends Server {
     }
     private function connect():bool {
         try {
-            if(!$this->isAvailable(false)){
-                throw new Exception("Der DB-Server ist offline oder nicht erreichbar!", 0x80050003);
-            }
             $this->dbc = new mysqli($this->host, $this->user, $this->password, $this->db, $this->port);
             if($this->dbc->connect_errno){
                 throw new Exception(message: $this->dbc->connect_error, code: $this->dbc->connect_errno);
