@@ -1,0 +1,68 @@
+.container-fluid {
+    --bs-gutter-x: 0;
+    margin: 0 var(--bs-gutter-x);
+}
+.body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    width:100%;
+}
+.modal {
+    background-color: rgba(var(--bs-body-bg-rgb), .75);
+    z-index: 2000;
+}
+body .body {
+    display: grid;
+    grid-template-columns: 1fr;    
+    grid-template-rows: 10rem 3rem auto 10rem;
+    gap: 0;
+}
+body nav {
+    position: sticky;
+    top: 0;
+}
+
+body.home .body {
+    display: grid;
+    grid-template-columns: 1fr;    
+    grid-template-rows: auto repeat(2, 0) 10rem;
+    gap: 0;
+}
+body.home nav {
+    position: absolute;
+    top: 0;
+    z-index:1200;
+}
+body.home header {
+    z-index: 1;
+}
+
+/* carousel home */
+#carousel-home .carousel-inner, #carousel-home .carousel-item {
+    height: 100%;
+}
+#carousel-home .carousel-item {
+    background-position: 50% 50%;
+    background-size: cover;
+}
+body[data-bs-theme="dark"] .carousel * {
+    color: var(--bs-body-color);
+}
+
+footer .phone {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+#form-register .password input, #form-register .password .form-floating + button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#form-register .progress {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
