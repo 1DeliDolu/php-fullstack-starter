@@ -63,15 +63,25 @@ function loadedForm(id) {
         // clear default behavior -> no send to action
         e.preventDefault();
         // read all inputs, textareas, selects, etc. -> save key and values in data
-        $data = {
+        const $form = $(`#${id}`);
+        const data = {
             mvc: $(`#${id}`).attr('data-action'),
         };
         $(`#${id} input, #${id} textarea, #${id} select`).each((idx, elem)=>{
-            $data[$(elem).attr('id')] = $(elem).val();
+            data[$(elem).attr('id')] = $(elem).val();
         });        
         // send data to server
-        new AJAX($data, (response) => {
+        new AJAX(data, (response) => {
             if(response.html){
+                const modalElement = $form.closest('.modal').get(0);
+                if(id === 'form-register' && modalElement){
+                    $(modalElement).one('hidden.bs.modal', () => {
+                        openLoginModal({
+                            username: data.username ?? '',
+                            pass: data.pass ?? ''
+                        });
+                    });
+                }
                 $('.modal').each((idx, elem) => {
                     bootstrap.Modal.getOrCreateInstance(elem).hide();
                 });
@@ -168,7 +178,12 @@ const showFooter = (response) => {
     $('footer').append(response.html);
     setMenuEvents();
 };
-const showModal = (response) => {
+const openLoginModal = (prefill = {}) => {
+    new AJAX({mvc: 'login.display', template: 'modal'}, (response) => {
+        showModal(response, prefill);
+    });
+};
+const showModal = (response, prefill = {}) => {
     $('body').append(response.html.modal);
     setMenuEvents();
     const modalElement = document.getElementById(response.html.id);
@@ -177,6 +192,12 @@ const showModal = (response) => {
         $(e.target).remove();
     });
     modalInstance.show();
+    if(prefill.username){
+        $(modalElement).find('#username').val(prefill.username);
+    }
+    if(prefill.pass){
+        $(modalElement).find('#pass').val(prefill.pass);
+    }
 }
 
 
