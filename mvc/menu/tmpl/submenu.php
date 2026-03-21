@@ -1,14 +1,8 @@
-<ul class="nav d-flex justify-content-center">
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-href="contact">Kontakt</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-href="agb">AGB</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-href="imprint">Impressum</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" data-href="privacypolice">Datenschutzerlärung</a>
-    </li>
-</ul>
+<div class="container-xl pt-3">
+    <div class="submenu-shell d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 gap-lg-3">
+        <a class="submenu-link" href="#" data-href="contact">Kontakt</a>
+        <a class="submenu-link" href="#" data-href="agb">AGB</a>
+        <a class="submenu-link" href="#" data-href="imprint">Impressum</a>
+        <a class="submenu-link" href="#" data-href="privacypolice">Datenschutzerklaerung</a>
+    </div>
+</div>
