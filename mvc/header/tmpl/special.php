@@ -1,42 +1,47 @@
-<div id="carousel-home" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="3" aria-label="Slide 4"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" style="background-image:url(images/css.jpg);">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
+<section class="hero-shell position-relative overflow-hidden">
+    <div class="hero-orb hero-orb-a"></div>
+    <div class="hero-orb hero-orb-b"></div>
+    <div class="container-xl position-relative">
+        <div class="row min-vh-100 align-items-center py-5">
+            <div class="col-12 col-lg-7 py-5">
+                <div class="hero-eyebrow text-uppercase small fw-semibold mb-3">German startup style, pragmatic PHP core</div>
+                <h1 class="display-3 fw-semibold mb-4">Launch product-ready web platforms without the usual starter chaos.</h1>
+                <p class="hero-copy fs-5 text-body-secondary mb-4">
+                    PehliONE gives you a maintainable PHP fullstack baseline with explicit MVC boundaries, sharp frontend integration, and enough structure to scale past prototype mode.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a class="btn btn-primary btn-lg px-4" href="#" data-href="login">Start with Login</a>
+                    <a class="btn btn-outline-light btn-lg px-4" href="#" data-href="logs">View Activity</a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="hero-card rounded-5 shadow-lg">
+                    <div class="hero-card-label text-uppercase small fw-semibold mb-3">Starter strengths</div>
+                    <div class="d-grid gap-3">
+                        <div class="hero-metric">
+                            <strong>01</strong>
+                            <div>
+                                <div class="fw-semibold">Structured MVC delivery</div>
+                                <div class="text-body-secondary small">Keep controllers thin and page contracts explicit.</div>
+                            </div>
+                        </div>
+                        <div class="hero-metric">
+                            <strong>02</strong>
+                            <div>
+                                <div class="fw-semibold">Frontend integration ready</div>
+                                <div class="text-body-secondary small">AJAX-loaded views and Bootstrap UX without brittle coupling.</div>
+                            </div>
+                        </div>
+                        <div class="hero-metric">
+                            <strong>03</strong>
+                            <div>
+                                <div class="fw-semibold">Operationally sane defaults</div>
+                                <div class="text-body-secondary small">A base you can evolve into real delivery, not a throwaway demo.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="carousel-item" style="background-image:url(images/html.jpg);">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" style="background-image:url(images/php.jpg);">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" style="background-image:url(images/sql.webp);">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel-home" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel-home" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+</section>
