@@ -58,6 +58,10 @@ final class Session extends CookieSession {
     }
     private function start():bool {
         try{
+            // session already active — uninitialized properties must not be accessed
+            if($this->isStarted() === PHP_SESSION_ACTIVE) {
+                return true;
+            }
             session_set_cookie_params([
                 'lifetime'  => $this->lifetime,
                 'domain'    => $this->domain,

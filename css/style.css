@@ -20,6 +20,10 @@ body .body {
 body nav {
     position: sticky;
     top: 0;
+    background: rgba(var(--bs-body-bg-rgb), .88) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(var(--bs-emphasis-color-rgb), .09);
 }
 
 body.home .body {
@@ -32,6 +36,10 @@ body.home nav {
     position: absolute;
     top: 0;
     z-index:1200;
+    background: rgba(0, 0, 0, .18) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
 }
 body.home header {
     z-index: 1;
@@ -151,12 +159,7 @@ nav .nav-shell {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: .55rem .8rem;
-    margin-top: .9rem;
-    border: 1px solid rgba(var(--bs-emphasis-color-rgb), .08);
-    background: rgba(var(--bs-body-bg-rgb), .78);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .08);
+    padding: .55rem 0;
 }
 nav .nav-brand {
     display: inline-flex;
@@ -421,7 +424,6 @@ footer .footer-chip {
         padding-right: 1.25rem !important;
     }
     nav .nav-shell {
-        border-radius: 1.5rem;
         align-items: flex-start;
         flex-wrap: wrap;
     }

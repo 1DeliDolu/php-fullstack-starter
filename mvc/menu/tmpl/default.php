@@ -1,5 +1,5 @@
-<div class="container-xl">
-    <div class="nav-shell rounded-pill">
+<div class="container-fluid px-3 px-lg-4 px-xl-5">
+    <div class="nav-shell">
         <a class="navbar-brand nav-brand" href="#" data-href="home">
             <span class="nav-brand-mark">P</span>
             <span class="nav-brand-copy">
