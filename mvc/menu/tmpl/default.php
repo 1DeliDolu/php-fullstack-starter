@@ -1,5 +1,5 @@
 <div class="container-xxl">
-    <a class="navbar-brand" href="#" data-href="home">HTML/CSS/JS/PHP-Projektschmiede</a>
+    <a class="navbar-brand" href="#" data-href="home">PehliONE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
