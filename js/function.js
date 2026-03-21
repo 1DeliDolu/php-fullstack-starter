@@ -86,18 +86,14 @@ function loadedForm(id) {
     $('#form-register [type="submit"]').prop('disabled', true);
     // check username
     $('#form-register #username').on('input', (e) => {
-        if($(e.target).val().length == 0){
+        const value = $(e.target).val().trim();
+        $(e.target).val(value);
+        if(value.length == 0){
             $(e.target).removeClass('is-invalid is-valid');
+        }else if(e.target.checkValidity()){
+            $(e.target).addClass('is-valid').removeClass('is-invalid');
         }else{
-            new AJAX(
-                {
-                    class: 'mail.getVerify',
-                    mail: $(e.target).val().trim()
-                },
-                (response) => {
-                    $(e.target).addClass(response.html?'is-valid':'is-invalid').removeClass(response.html?'is-invalid':'is-valid').trigger('change');
-                }
-            );
+            $(e.target).addClass('is-invalid').removeClass('is-valid');
         }
         $(e.target).trigger('change');
     });
