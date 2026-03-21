@@ -6,11 +6,17 @@ class AJAX {
         this.send();
     }
     static resolveUrl() {
-        const configuredUrl = document.querySelector('meta[name="app-ajax-url"]')?.content?.trim();
-        if (configuredUrl) {
-            return configuredUrl;
+        const currentUrl = new URL(window.location.href);
+        if (currentUrl.hostname.endsWith('.test')) {
+            return new URL('ajax.php', currentUrl).toString();
         }
-        return new URL('ajax.php', window.location.href).toString();
+
+        const herdBaseUrl = document.querySelector('meta[name="app-herd-url"]')?.content?.trim();
+        if (herdBaseUrl) {
+            return new URL('ajax.php', `${herdBaseUrl.replace(/\/+$/, '')}/`).toString();
+        }
+
+        return new URL('ajax.php', currentUrl).toString();
     }
     send() {
         // https://api.jquery.com/jQuery.ajax/#jQuery-ajax-url-settings
@@ -21,12 +27,8 @@ class AJAX {
             },
             async: true,
             cache: false,
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(this.data),
+            data: this.data,
             dataType: 'json',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
             method: 'POST',
             url: this.url,
             success: (response, textStatus, xhr) => {

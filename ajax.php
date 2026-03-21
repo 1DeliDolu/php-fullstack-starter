@@ -52,10 +52,8 @@ try {
 
     // auslesen aller http-Header
     $headers = getRequestHeadersSafe();
-    // prüfung ob es sich um einen XMLHttpRequest handelt
-    $requestedWith = $headers['X-Requested-With'] ?? $headers['x-requested-with'] ?? null;
-    if (!is_string($requestedWith) || strtolower($requestedWith) != 'xmlhttprequest') {
-        throw new Exception('Nur AJAX-Requests sind erlaubt!', 0x80000004);
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
+        throw new Exception('Nur POST-Requests sind erlaubt!', 0x80000004);
     }
     $session = new Session(secure: false, savepath: '/tmp');
     // $_POST & php://input, da es gelegentlich probleme bei AJAX und POST gibt
