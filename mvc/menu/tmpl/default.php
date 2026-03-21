@@ -19,9 +19,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-href="logs">Logeintraege</a>
                     </li>
+                    <?php if($this->model->isLoggedIn()): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-href="logout"
+                           title="<?=$this->model->getUsername()?> abmelden"
+                           aria-label="Abmelden">
+                            <span class="bi bi-box-arrow-right me-1" aria-hidden="true"></span>Abmelden
+                        </a>
+                    </li>
+                    <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-href="login">Login</a>
                     </li>
+                    <?php endif; ?>
                 </ul>
                 <div class="nav-utility">
                     <button id="change-theme" class="btn nav-theme-toggle bi bi-sun-fill" type="button" aria-label="Change theme"></button>
