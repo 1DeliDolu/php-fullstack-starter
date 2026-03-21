@@ -1,8 +1,9 @@
 <div class="container-xl">
     <div class="nav-shell rounded-pill">
         <a class="navbar-brand nav-brand" href="#" data-href="home">
-            <span class="nav-brand-mark">P</span>
+            
             <span>
+                <span class="nav-brand-mark">P</span>
                 <strong class="d-block lh-1">PehliONE</strong>
                 <small class="text-body-secondary">Fullstack starter</small>
             </span>

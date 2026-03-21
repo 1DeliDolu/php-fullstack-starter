@@ -6,7 +6,7 @@
                 <div class="col-12 col-xl-5">
                     <div class="footer-eyebrow text-uppercase small fw-semibold mb-3">Built for reliable digital products</div>
                     <div class="footer-brand d-flex align-items-center gap-3 mb-3">
-                        <span class="footer-logo rounded-circle d-inline-flex align-items-center justify-content-center fw-bold">P</span>
+                        <span class="footer-logo rounded-circle d-inline-flex align-items-center justify-content-center fw-bold">👌</span>
                         <div>
                             <div class="h4 mb-1">PehliONE</div>
                             <div class="text-body-secondary">PHP Fullstack Starter for fast, maintainable product delivery.</div>
