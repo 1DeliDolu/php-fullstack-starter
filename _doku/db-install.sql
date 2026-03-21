@@ -28,4 +28,4 @@ SELECT,
 INSERT
 ,
 UPDATE,
-DELETE ON `php-fullstack-starter`.* TO `project_user` @`localhost`;
+DELETE ON `php_fullstack_starter`.* TO `project_user` @`localhost`;

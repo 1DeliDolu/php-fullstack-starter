@@ -11,6 +11,19 @@ use IAD\classes\db;
 use IAD\classes\session;
 use IAD\classes\stmt;
 
+function normalizeException(Throwable $e): array
+{
+    return [
+        'message' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'file' => $e->getFile(),
+        'line' => $e->getLine(),
+        'trace' => $e->getTrace(),
+        'trace_str' => $e->getTraceAsString(),
+        'prev' => $e->getPrevious() ? normalizeException($e->getPrevious()) : null,
+    ];
+}
+
 function getRequestHeadersSafe(): array
 {
     if (function_exists('getallheaders')) {
@@ -98,15 +111,23 @@ try {
     }
     // $response = $_POST;
     // prüfung welche antwort vom Client akzeptiert wird
-    if(str_starts_with($headers['Accept'], '*/*') || str_starts_with($headers['Accept'], 'text/html')) {
+    $accept = $headers['Accept'] ?? 'application/json';
+    if(str_starts_with($accept, '*/*') || str_starts_with($accept, 'text/html')) {
         echo $response;
-    }elseif(str_starts_with($headers['Accept'], 'application/json')) {
+    }elseif(str_starts_with($accept, 'application/json')) {
         echo json_encode([
             'html' => $response,
             'exceptions' => $exceptions
         ]);
     }
 
-}catch(Exception $e){
-    var_dump($e);
+}catch(Throwable $e){
+    http_response_code(500);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'html' => false,
+        'exceptions' => [
+            normalizeException($e),
+        ],
+    ]);
 }

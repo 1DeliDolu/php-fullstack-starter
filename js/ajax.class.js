@@ -37,7 +37,14 @@ class AJAX {
                 }
             },
             error: (xhr, status, error) => {
-                console.error(`Error: ${error}`, xhr, status);
+                console.error('AJAX request failed', {
+                    url: this.url,
+                    status,
+                    error,
+                    httpStatus: xhr.status,
+                    responseJSON: xhr.responseJSON ?? null,
+                    responseText: xhr.responseText ?? null,
+                });
             }
         });
     }

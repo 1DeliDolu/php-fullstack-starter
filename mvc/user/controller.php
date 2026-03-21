@@ -27,7 +27,7 @@ final class Controller extends BaseController {
     }
     public function setLogin():bool {
         try {
-            return false;
+            return $this->model->setLogin();
         }catch(Exception $e){
             Log::add($e);
             return false;
@@ -43,7 +43,7 @@ final class Controller extends BaseController {
     }
     public function setLogout():bool {
         try {
-            return true;
+            return $this->model->setLogout();
         }catch(Exception $e){
             Log::add($e);
             return false;
@@ -51,8 +51,7 @@ final class Controller extends BaseController {
     }
     public function getStates():array {
         try {
-            $states = [];
-            return $states;
+            return $this->model->getStates();
         }catch(Exception $e){
             Log::add($e);
             return [];
