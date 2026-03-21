@@ -1,8 +1,6 @@
 // wenn DOM komplett geladen ist
 $(document).ready((e)=>{
     try {
-        console.log('DOM geladen');
-
         // load content
         // header
         $('body').addClass('home');

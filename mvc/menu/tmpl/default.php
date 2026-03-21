@@ -1,11 +1,10 @@
 <div class="container-xl">
     <div class="nav-shell rounded-pill">
         <a class="navbar-brand nav-brand" href="#" data-href="home">
-            
-            <span>
-                <span class="nav-brand-mark">P</span>
+            <span class="nav-brand-mark">P</span>
+            <span class="nav-brand-copy">
                 <strong class="d-block lh-1">PehliONE</strong>
-                <small class="text-body-secondary">Fullstack starter</small>
+                <small class="text-body-secondary d-block">Fullstack starter</small>
             </span>
         </a>
         <button class="navbar-toggler nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Toggle navigation">

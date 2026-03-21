@@ -32,7 +32,6 @@ class AJAX {
             method: 'POST',
             url: this.url,
             success: (response, textStatus, xhr) => {
-                console.info('AJAX request successful', response, textStatus, xhr);
                 if(this.callback != null){
                     this.callback(response);
                 }
