@@ -210,9 +210,13 @@ const showHeader = (response) => {
     $('header').html(response.html);
 };
 const showMenu = (response) => {
-    $('nav').html(response.html);
-    setMenuEvents();
-};
+  $("nav").html(response.html);
+  setMenuEvents();
+  // restore theme icon based on current body theme (template always renders sun)
+  if ($("body").attr("data-bs-theme") === "light") {
+    $("#change-theme").removeClass("bi-sun-fill").addClass("bi-moon-fill");
+  }
+};;
 const showFooter = (response) => {
     $('footer').append(response.html);
     setMenuEvents();
