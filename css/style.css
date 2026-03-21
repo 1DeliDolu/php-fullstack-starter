@@ -49,9 +49,70 @@ body[data-bs-theme="dark"] .carousel * {
     color: var(--bs-body-color);
 }
 
-footer .phone {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+footer .footer-shell {
+    position: relative;
+    background:
+        radial-gradient(circle at top left, rgba(var(--bs-primary-rgb), .16), transparent 30%),
+        linear-gradient(135deg, rgba(var(--bs-body-tertiary-bg-rgb), .95), rgba(var(--bs-body-bg-rgb), 1));
+    border-color: rgba(var(--bs-emphasis-color-rgb), .08) !important;
+}
+footer .footer-accent {
+    height: 4px;
+    background: linear-gradient(90deg, var(--bs-primary), #6ea8fe 45%, #8bb9fe 100%);
+}
+footer .footer-eyebrow,
+footer .footer-section-title {
+    letter-spacing: .12em;
+    color: var(--bs-primary);
+}
+footer .footer-logo {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, var(--bs-primary), #8bb9fe);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(var(--bs-primary-rgb), .28);
+}
+footer .footer-copy {
+    max-width: 32rem;
+}
+footer .footer-contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: .9rem 1rem;
+    border: 1px solid rgba(var(--bs-emphasis-color-rgb), .08);
+    border-radius: 1rem;
+    background-color: rgba(var(--bs-body-bg-rgb), .66);
+    color: inherit;
+    transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+}
+footer .footer-contact-item:hover,
+footer .footer-contact-item:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(var(--bs-primary-rgb), .28);
+    background-color: rgba(var(--bs-body-bg-rgb), .92);
+}
+footer .footer-meta {
+    border-top: 1px solid rgba(var(--bs-emphasis-color-rgb), .08);
+}
+footer .footer-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--bs-emphasis-color-rgb), .08);
+    background-color: rgba(var(--bs-body-bg-rgb), .72);
+    color: var(--bs-secondary-color);
+    font-size: .825rem;
+}
+
+@media (max-width: 767.98px) {
+    footer .footer-contact-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
 #form-register .password input, #form-register .password .form-floating + button {
