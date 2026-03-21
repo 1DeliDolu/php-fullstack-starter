@@ -1,5 +1,5 @@
 <div class="d-flex mt-3 justify-content-center" style="gap:1rem;">
-    <div>&copy; 2024 Thomas Floß</div>
+    <div>&copy; <?=date('Y')?> Mustafa Özdemir</div>
     <div>Kontakt<address>IAD GmbH<br>Neue Kasseler Straße 62 E<br>35039 Marburg</address></div>
     <div><address class="phone">
         <label>Telefon</label>
