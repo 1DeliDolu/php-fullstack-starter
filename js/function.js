@@ -72,7 +72,9 @@ function loadedForm(id) {
         // send data to server
         new AJAX($data, (response) => {
             if(response.html){
-                $('.modal').modal('hide');
+                $('.modal').each((idx, elem) => {
+                    bootstrap.Modal.getOrCreateInstance(elem).hide();
+                });
             }else{
                 // ??
                 $('.modal .modal-dialog').shake();
@@ -173,9 +175,12 @@ const showFooter = (response) => {
 const showModal = (response) => {
     $('body').append(response.html.modal);
     setMenuEvents();
-    $(`#${response.html.id}`).modal('show').on('hidden.bs.modal', (e) => {
+    const modalElement = document.getElementById(response.html.id);
+    const modalInstance = bootstrap.Modal.getOrCreateInstance(modalElement);
+    $(modalElement).on('hidden.bs.modal', (e) => {
         $(e.target).remove();
     });
+    modalInstance.show();
 }
 
 

@@ -1,6 +1,7 @@
 <?php
 define('_IAD', false);
 
+require('includes/bootstrap.php');
 require('config/config.php');
 require('includes/autoload.php');
 

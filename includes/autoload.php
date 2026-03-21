@@ -1,42 +1,7 @@
 <?php
 // autoloader - lädt alle erforderlichen Class-Files
 
-// Load .env files
-function loadDotEnv($filePath) {
-    if (!file_exists($filePath)) {
-        return;
-    }
-    
-    $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        // Skip comments
-        if (strpos(trim($line), '#') === 0) {
-            continue;
-        }
-        
-        // Parse key=value
-        if (strpos($line, '=') !== false) {
-            list($key, $value) = explode('=', $line, 2);
-            $key = trim($key);
-            $value = trim($value);
-            
-            // Remove quotes if present
-            if ((strpos($value, '"') === 0 && strrpos($value, '"') === strlen($value) - 1) ||
-                (strpos($value, "'") === 0 && strrpos($value, "'") === strlen($value) - 1)) {
-                $value = substr($value, 1, -1);
-            }
-            
-            // Set in $_ENV and putenv
-            $_ENV[$key] = $value;
-            putenv("$key=$value");
-        }
-    }
-}
-
-// Load .env from project root
-loadDotEnv(__DIR__ . '/../.env');
-// Load .env.local if it exists (for local overrides)
-loadDotEnv(__DIR__ . '/../.env.local');
+require_once __DIR__ . '/bootstrap.php';
 
 // spl - Standard PHP Library
 // registriert eine anonyme funktion für den autoload als eventhandler

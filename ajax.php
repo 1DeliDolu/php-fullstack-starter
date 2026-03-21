@@ -2,6 +2,7 @@
 define('_IAD', true);
 define('_AJAX', true);
 
+require('includes/bootstrap.php');
 require('config/config.php');
 require('includes/autoload.php');
 
@@ -10,12 +11,50 @@ use IAD\classes\db;
 use IAD\classes\session;
 use IAD\classes\stmt;
 
+function getRequestHeadersSafe(): array
+{
+    if (function_exists('getallheaders')) {
+        return getallheaders();
+    }
+
+    if (function_exists('apache_request_headers')) {
+        return apache_request_headers();
+    }
+
+    $headers = [];
+    foreach ($_SERVER as $key => $value) {
+        if (!str_starts_with($key, 'HTTP_')) {
+            continue;
+        }
+
+        $header = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($key, 5)))));
+        $headers[$header] = $value;
+    }
+
+    return $headers;
+}
+
 try {
     $exceptions = [];
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+    if (preg_match('#^https?://(localhost|127\.0\.0\.1)(:\d+)?$#', $origin)) {
+        header("Access-Control-Allow-Origin: $origin");
+        header('Vary: Origin');
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Headers: Accept, Content-Type, X-Requested-With');
+        header('Access-Control-Allow-Methods: POST, OPTIONS');
+    }
+
+    if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'OPTIONS') {
+        http_response_code(204);
+        exit;
+    }
+
     // auslesen aller http-Header
-    $headers = apache_request_headers();
+    $headers = getRequestHeadersSafe();
     // prüfung ob es sich um einen XMLHttpRequest handelt
-    if (!isset($headers['X-Requested-With']) || strtolower($headers['X-Requested-With'])!= 'xmlhttprequest') {
+    $requestedWith = $headers['X-Requested-With'] ?? $headers['x-requested-with'] ?? null;
+    if (!is_string($requestedWith) || strtolower($requestedWith) != 'xmlhttprequest') {
         throw new Exception('Nur AJAX-Requests sind erlaubt!', 0x80000004);
     }
     $session = new Session(secure: false, savepath: '/tmp');
