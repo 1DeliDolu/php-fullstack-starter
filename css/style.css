@@ -455,9 +455,21 @@ footer .footer-chip {
     header .hero-shell {
         min-height: auto;
     }
+    header .hero-shell .row {
+        min-height: auto !important;
+    }
+    header .hero-orb {
+        width: 8rem;
+        height: 8rem;
+        filter: blur(6px);
+        opacity: .5;
+    }
     header .hero-card,
     header .page-header-shell {
         padding: 1.25rem;
+    }
+    header .page-header-shell {
+        border-radius: 1.25rem !important;
     }
     footer .footer-contact-item {
         align-items: flex-start;
