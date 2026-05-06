@@ -1,4 +1,4 @@
-# PHP Fullstack Starter
+# AJAXPHP Fullstack Starter
 
 <p>
   <img alt="PHP 8.1+" src="https://img.shields.io/badge/PHP-8.1%2B-777bb4?logo=php&logoColor=white">
@@ -23,13 +23,13 @@ The project keeps the stack intentionally simple: native PHP, MySQL/MariaDB, Boo
 
 ## Tech Stack
 
-| Layer | Tools |
-| --- | --- |
-| Backend | PHP 8.1+, native MVC, `mysqli` |
-| Frontend | HTML, CSS, Bootstrap 5.3, Bootstrap Icons, jQuery |
-| Database | MySQL or MariaDB |
-| Auth | PHP sessions, `password_hash`, `password_verify` |
-| Config | `.env`, `.env.local`, `config/config.php` |
+| Layer    | Tools                                               |
+| -------- | --------------------------------------------------- |
+| Backend  | PHP 8.1+, native MVC,`mysqli`                     |
+| Frontend | HTML, CSS, Bootstrap 5.3, Bootstrap Icons, jQuery   |
+| Database | MySQL or MariaDB                                    |
+| Auth     | PHP sessions,`password_hash`, `password_verify` |
+| Config   | `.env`, `.env.local`, `config/config.php`     |
 
 ## Project Structure
 
@@ -93,13 +93,11 @@ This repository has no Composer or Node build step. Bootstrap, Bootstrap Icons, 
    ```html
    <meta name="app-herd-url" content="http://localhost:8000">
    ```
-
 2. Create the database.
 
    ```bash
    mysql -u root -p < _doku/db-install.sql
    ```
-
 3. Create a local `.env` file.
 
    ```dotenv
@@ -110,7 +108,6 @@ This repository has no Composer or Node build step. Bootstrap, Bootstrap Icons, 
    DB_PASSWORD=Pa$$w0rd
    DB_CHARSET=utf8mb4
    ```
-
 4. Open the application in your browser.
 
    ```text
@@ -129,14 +126,14 @@ This repository has no Composer or Node build step. Bootstrap, Bootstrap Icons, 
 
 Supported database variables:
 
-| Variable | Default | Description |
-| --- | --- | --- |
-| `DB_HOST` | `localhost` | Database host |
-| `DB_PORT` | `3306` | Database port |
-| `DB_NAME` | `project` | Database name |
-| `DB_USER` | `project_user` | Database user |
-| `DB_PASSWORD` | `Pa$$w0rd` | Database password |
-| `DB_CHARSET` | `utf8mb4` | Character set |
+| Variable        | Default          | Description       |
+| --------------- | ---------------- | ----------------- |
+| `DB_HOST`     | `localhost`    | Database host     |
+| `DB_PORT`     | `3306`         | Database port     |
+| `DB_NAME`     | `project`      | Database name     |
+| `DB_USER`     | `project_user` | Database user     |
+| `DB_PASSWORD` | `Pa$$w0rd`     | Database password |
+| `DB_CHARSET`  | `utf8mb4`      | Character set     |
 
 The install script in `_doku/db-install.sql` creates a database named `php_fullstack_starter`, so `DB_NAME=php_fullstack_starter` is recommended for local setup.
 
@@ -176,7 +173,7 @@ new AJAX({ class: "password.getMistakes", password: "Pa$$w0rd" }, callback);
 This resolves to:
 
 ```text
-IAD\classes\password::getMistakes()
+IAD\classes\Password::getMistakes()
 ```
 
 Typical JSON response:
